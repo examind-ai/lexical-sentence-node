@@ -3,6 +3,7 @@ import {
   LexicalEditor,
   TextNode,
   $createTextNode,
+  $isLineBreakNode,
   $isParagraphNode,
 } from 'lexical';
 import { useEffect } from 'react';
@@ -42,6 +43,18 @@ const splitSentencesOnPeriods = (
   }
 };
 
+const moveToNewSentence = (node: TextNode) => {
+  const parent = node.getParent();
+  if (!$isSentenceNode(parent)) return;
+
+  node.remove();
+
+  const newSentence = $createSentenceNode();
+  newSentence.append(node);
+  parent.insertAfter(newSentence);
+  node.select();
+};
+
 const textNodeTransform = (node: TextNode) => {
   if (!node.isSimpleText()) return;
 
@@ -51,6 +64,9 @@ const textNodeTransform = (node: TextNode) => {
   if ($isParagraphNode(parent)) wrapSentence(node);
   else if ($isSentenceNode(parent))
     splitSentencesOnPeriods(parent, node);
+
+  if ($isLineBreakNode(node.getPreviousSibling()))
+    moveToNewSentence(node);
 };
 
 const useSentencePlugin = (editor: LexicalEditor) => {
