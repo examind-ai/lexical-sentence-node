@@ -27,6 +27,10 @@ export class SentenceNode extends ElementNode {
     return new SentenceNode(node.__key);
   }
 
+  isInline(): boolean {
+    return true;
+  }
+
   // View
 
   createDOM(_config: EditorConfig): HTMLElement {
