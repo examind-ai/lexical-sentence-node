@@ -31,6 +31,10 @@ export class SentenceNode extends ElementNode {
     return true;
   }
 
+  canBeEmpty(): boolean {
+    return false;
+  }
+
   // View
 
   createDOM(_config: EditorConfig): HTMLElement {

@@ -1,6 +1,6 @@
 # React Lexical Sentence
 
-Lexical doesn't come with the concept of sentences. For essay progress tracking, granularity at the sentence level is desired. This test repo creates a custom SentenceNode to track sentence changes. Many problems were encountered (see `Problems` below), so we may need to rethink the approach.
+Lexical doesn't come with the concept of sentences. For essay progress tracking, granularity at the sentence level is desired, so this repo creates a custom SentenceNode to track sentence changes.
 
 ## Setup
 
@@ -37,14 +37,6 @@ Although noteworthy is when DOM gets exported, `ltr` dir is properly attached.
   </sentence>
 </p>
 ```
-
-### Backspace
-
-When backspacing, sentences with no text don't get deleted.
-
-<video src="assets/backspace.mp4" controls title="Title"></video>
-
-https://github.com/examind-ai/lexical-sentence-node/assets/504505/d2589447-bef2-4c38-b0f4-f0f3e0d6ff2f
 
 ### New character at beginning of sentence
 
