@@ -2,18 +2,16 @@ import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext
 import {
   LexicalEditor,
   TextNode,
-  ParagraphNode,
   $createTextNode,
+  $isParagraphNode,
 } from 'lexical';
 import { useEffect } from 'react';
 import {
   $createSentenceNode,
+  $isSentenceNode,
   SentenceNode,
 } from '../../nodes/SentenceNode';
 import { $wrapNodeInElement } from '@lexical/utils';
-
-const paragraphType = ParagraphNode.getType();
-const sentenceType = SentenceNode.getType();
 
 const wrapSentence = (node: TextNode) => {
   $wrapNodeInElement(node, $createSentenceNode);
@@ -50,10 +48,8 @@ const textNodeTransform = (node: TextNode) => {
   const parent = node.getParent();
   if (parent === null) return;
 
-  const parentType = parent.getType();
-
-  if (parentType === paragraphType) wrapSentence(node);
-  else if (parentType === sentenceType)
+  if ($isParagraphNode(parent)) wrapSentence(node);
+  else if ($isSentenceNode(parent))
     splitSentencesOnPeriods(parent, node);
 };
 
