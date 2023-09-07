@@ -1,6 +1,6 @@
 # React Lexical Sentence
 
-Create custom SentenceNode for Lexical.
+Lexical doesn't come with the concept of sentences. For essay progress tracking, granularity at the sentence level is desired. This test repo creates a custom SentenceNode to track sentence changes. Many problems were encountered (see `Problems` below), so we may need to rethink the approach.
 
 ## Setup
 
