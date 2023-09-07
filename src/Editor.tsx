@@ -6,6 +6,8 @@ import { Box } from '@mui/material';
 import { MuiContentEditable, placeHolderSx } from './style';
 import { editorTheme } from './theme';
 import TreeViewPlugin from './plugins/TreeViewPlugin';
+import { SentenceNode } from './nodes/SentenceNode';
+import SentencePlugin from './plugins/SentencePlugin';
 
 const Editor = () => {
   return (
@@ -16,6 +18,7 @@ const Editor = () => {
         onError: (error: Error) => {
           throw error;
         },
+        nodes: [SentenceNode],
       }}
     >
       <Box sx={{ position: 'relative', background: 'white' }}>
@@ -27,6 +30,7 @@ const Editor = () => {
           ErrorBoundary={LexicalErrorBoundary}
         />
         <HistoryPlugin />
+        <SentencePlugin />
       </Box>
       <TreeViewPlugin />
     </LexicalComposer>
