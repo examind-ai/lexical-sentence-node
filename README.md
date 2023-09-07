@@ -44,8 +44,12 @@ When backspacing, sentences with no text don't get deleted.
 
 <video src="assets/backspace.mp4" controls title="Title"></video>
 
+https://github.com/examind-ai/lexical-sentence-node/assets/504505/d2589447-bef2-4c38-b0f4-f0f3e0d6ff2f
+
 ### New character at beginning of sentence
 
 Adding new character at the beginning of a sentence creates new sentence.
 
 <video src="assets/beginning_sentence.mp4" controls title="Title"></video>
+
+https://github.com/examind-ai/lexical-sentence-node/assets/504505/25824202-bbb7-4762-aa59-06ba4d01b522
