@@ -45,3 +45,11 @@ Adding new character at the beginning of a sentence creates new sentence.
 <video src="assets/beginning_sentence.mp4" controls title="Title"></video>
 
 https://github.com/examind-ai/lexical-sentence-node/assets/504505/25824202-bbb7-4762-aa59-06ba4d01b522
+
+### Join sentences when period is removed
+
+Sentences don't join when periods are removed.
+
+<video src="assets/join_sentences.mp4" controls title="Title"></video>
+
+https://github.com/examind-ai/lexical-sentence-node/assets/504505/0a290bdc-0816-47b6-96fb-da2f9ef3070b
