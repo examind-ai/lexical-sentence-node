@@ -37,3 +37,15 @@ Although noteworthy is when DOM gets exported, `ltr` dir is properly attached.
   </sentence>
 </p>
 ```
+
+### Backspace
+
+When backspacing, sentences with no text don't get deleted.
+
+<video src="assets/backspace.mp4" controls title="Title"></video>
+
+### New character at beginning of sentence
+
+Adding new character at the beginning of a sentence creates new sentence.
+
+<video src="assets/beginning_sentence.mp4" controls title="Title"></video>
