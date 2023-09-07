@@ -30,7 +30,7 @@ export class SentenceNode extends ElementNode {
   // View
 
   createDOM(_config: EditorConfig): HTMLElement {
-    const dom = document.createElement('span');
+    const dom = document.createElement('sentence');
     return dom;
   }
   updateDOM(
@@ -43,7 +43,7 @@ export class SentenceNode extends ElementNode {
 
   static importDOM(): DOMConversionMap | null {
     return {
-      span: (_node: Node) => ({
+      sentence: (_node: Node) => ({
         conversion: convertSentenceElement,
         priority: 0,
       }),
