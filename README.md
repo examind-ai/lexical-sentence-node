@@ -38,14 +38,6 @@ Although noteworthy is when DOM gets exported, `ltr` dir is properly attached.
 </p>
 ```
 
-### New character at beginning of sentence
-
-Adding new character at the beginning of a sentence creates new sentence.
-
-<video src="assets/beginning_sentence.mp4" controls title="Title"></video>
-
-https://github.com/examind-ai/lexical-sentence-node/assets/504505/25824202-bbb7-4762-aa59-06ba4d01b522
-
 ### Join sentences when period is removed
 
 Sentences don't join when periods are removed.

@@ -23,25 +23,21 @@ const splitSentencesOnPeriods = (
   node: TextNode,
 ) => {
   // If there are non-space characters after a period, split into a new sentence.
-  if (!/\.\s+[^ \n\t]/.test(node.getTextContent())) return;
 
-  // Split on first character after a period followed by whitespaces.
-  // Warning: lookbehind support was introduced in Safari 16.4 (March 25, 2023), so we'll need to patch this to support older browsers: https://caniuse.com/js-regexp-lookbehind
-  const parts = node.getTextContent().split(/(?<=\.\s*)(?=[^ \n\t])/);
+  // (.*?\.): Captures everything up to and including the period. This is our first capturing group.
+  // (\s+\S.*): Captures whitespace characters, followed by a non-whitespace character, followed by any number of other characters. This is our second capturing group.
+  const matches = node.getTextContent().match(/(.*?\.)(\s+\S.*)/);
 
-  if (parts.length < 2) return;
+  if (!matches || matches.length < 3) return;
 
-  const [first, ...rest] = parts;
+  const [, first, rest] = matches;
   node.setTextContent(first);
-  let lastSentence = parent;
-  for (const part of rest) {
-    const newSentence = $createSentenceNode();
-    const newTextNode = $createTextNode(part);
-    newSentence.append(newTextNode);
-    lastSentence.insertAfter(newSentence);
-    lastSentence = newSentence;
-    newTextNode.select(); // Reposition focus, otherwise it'll be focused at the end of the first text node
-  }
+
+  const newSentence = $createSentenceNode();
+  const newTextNode = $createTextNode(rest);
+  newSentence.append(newTextNode);
+  parent.insertAfter(newSentence);
+  newTextNode.select(); // Reposition focus, otherwise it'll be focused at the end of the first text node
 };
 
 const moveToNewSentence = (node: TextNode) => {
