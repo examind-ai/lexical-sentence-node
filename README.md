@@ -2,6 +2,13 @@
 
 Lexical doesn't come with the concept of sentences. For essay progress tracking, granularity at the sentence level is desired, so this repo creates a custom SentenceNode to track sentence changes.
 
+## Status
+
+Put this custom `SentenceNode` approach on hold based on inherent challenges with getting Lexical to play nicely with custom nested structures. More info:
+
+Challenges explained: https://discord.com/channels/953974421008293909/953974421486436393/1149744521534513253
+Another developer trying to create the same SentenceNode and running into similar issues: https://discord.com/channels/953974421008293909/955972012541628456/1037712450511970304
+
 ## Setup
 
 ```
