@@ -32,7 +32,7 @@ const splitSentencesOnPeriods = (
   if (parts.length < 2) return;
 
   const [first, ...rest] = parts;
-  node.replace($createTextNode(first));
+  node.setTextContent(first);
   let lastSentence = parent;
   for (const part of rest) {
     const newSentence = $createSentenceNode();
