@@ -26,6 +26,7 @@ const splitSentencesOnPeriods = (
   if (!/\.\s+[^ \n\t]/.test(node.getTextContent())) return;
 
   // Split on first character after a period followed by whitespaces.
+  // Warning: lookbehind support was introduced in Safari 16.4 (March 25, 2023), so we'll need to patch this to support older browsers: https://caniuse.com/js-regexp-lookbehind
   const parts = node.getTextContent().split(/(?<=\.\s*)(?=[^ \n\t])/);
 
   if (parts.length < 2) return;
